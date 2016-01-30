@@ -13,37 +13,37 @@ Generates html to display a table using our styles
 <blockquote>
 <link rel = "stylesheet" href = "includes/styles/efficienc.css">
 <cfscript>
-	// Query to test with
-	myQuery = application.udf.sqlExecute("SELECT * FROM appointment");
-
-	// Example One: simple query to table
-	//writeOutput(application.udf.helperTable(myQuery));
+	// Query to test with<br>
+	myQuery = application.udf.sqlExecute("SELECT * FROM appointment");<br>
+<br>
+	// Example One: simple query to table<br>
+	//writeOutput(application.udf.helperTable(myQuery));<br>
+	<br>
+	// Example Two: custom array of columns<br>
+	//writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"]));<br>
+	<br>
+	// Example Three: custom inline table style<br>
+	//writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], styleTable = "width: 500;"));<br>
+	<br>
+	// Example Three: custom row style<br>
+	//writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], styleTable = "width: 500;", styleRow = "tr-state-offered"));<br>
+	<br>
+	// Example Four: custom row style logic<br>
+	/*myFunction = function(query data, numeric record)<br>
+	{<br>
+		if(arguments.data.appointmentID[arguments.record] == 1) {return "tr-state-noCriteria";}<br>
+		return "tr-state-offered";<br>
+	};<br>
+	writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], styleLogic = myFunction));*/<br>
 	
-	// Example Two: custom array of columns
-	//writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"]));
-	
-	// Example Three: custom inline table style
-	//writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], styleTable = "width: 500;"));
-	
-	// Example Three: custom row style
-	//writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], styleTable = "width: 500;", styleRow = "tr-state-offered"));
-	
-	// Example Four: custom row style logic
-	/*myFunction = function(query data, numeric record)
-	{
-		if(arguments.data.appointmentID[arguments.record] == 1) {return "tr-state-noCriteria";}
-		return "tr-state-offered";
-	};
-	writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], styleLogic = myFunction));*/
-	
-	// Example Five: custom extra columns
-	myFunction = function(query data, numeric record)
-	{
-		var example = "buttonDelete(" & arguments.data.appointmentID[arguments.record] & ")";
-		return "<input type = 'button' value = 'DELETE' onClick = '" & example & "'/>";
-	};
-	myExtra = [{title:"DELETE", logic:myFunction}];
-	writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], colsExtra = myExtra));
+	// Example Five: custom extra columns<br>
+	myFunction = function(query data, numeric record)<br>
+	{<br>
+		var example = "buttonDelete(" & arguments.data.appointmentID[arguments.record] & ")";<br>
+		return "<input type = 'button' value = 'DELETE' onClick = '" & example & "'/>";<br>
+	};<br>
+	myExtra = [{title:"DELETE", logic:myFunction}];<br>
+	writeOutput(application.udf.helperTable(data = myQuery, colsDisplay = ["appointmentID", "boardNum"], colsExtra = myExtra));<br>
 </cfscript>
 </blockquote>
 
