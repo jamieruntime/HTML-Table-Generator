@@ -54,4 +54,4 @@ Notes
 About the Author
 ----------------
 
-You can learn more at my site: <a href = "https://jamieruntime.wordpress.com/2016/01/30/sql-execute-the-one-line-sql-statement-udf/" target = "_blank">JamieRuntime article</a>
+You can learn more at my site: <a href = "https://jamieruntime.wordpress.com/2016/01/30/table-html-generator/" target = "_blank">JamieRuntime article</a>
